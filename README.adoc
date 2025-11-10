@@ -1,0 +1,64 @@
+# Smart JSON Inventory
+
+## Tips
+
+On my development checkmk site I install pprintpp 
+
+.install
+----
+pip install pprintpp
+----
+
+and use it like this to understand the data structure in python
+
+----
+from pprint import pprint as pp
+...
+pp(section)
+...
+
+----
+
+INFO: once you are done with development you should remove thes pp() print statements of course.
+
+## Files
+
+### Agent plugin demo
+
+* Just a demo agent plugin to output key value pairs
+----
+./sysctl2smartjsoninventory.sh
+----
+
+### The inventory plugin for checkmk
+----
+./local/lib/python3/cmk_addons/plugins/smartjsoninventory/agent_based/smartjsoninventory.py
+----
+
+### The painter for the inventory
+* just cosmetic. API is most probably going to change for checkmk 2.5
+* not needed, just to make the inventory path and colum titles nicer and add icons
+----
+./local/share/check_mk/web/plugins/views/smartjsoninventory.py
+----
+
+.using these icons
+----
+./local/share/check_mk/web/htdocs/themes/facelift/images/icon_entertainment.svg
+./local/share/check_mk/web/htdocs/themes/facelift/images/icon_beer.svg
+./local/share/check_mk/web/htdocs/themes/facelift/images/icon_travel.svg
+./local/share/check_mk/web/htdocs/themes/facelift/images/icon_avocado.svg
+./local/share/check_mk/web/htdocs/themes/facelift/images/icon_banana.svg
+./local/share/check_mk/web/htdocs/themes/facelift/images/icon_leaves.svg
+./local/share/check_mk/web/htdocs/themes/facelift/images/icon_food-and-drink.svg
+----
+
+### agent files
+
+* Some files I used during developing *Individual program call instead of agent access* with +cat ~/agentfile/$HOSTNAME$+
+
+----
+./agentfiles/smartjsoninventory-sysctl
+./agentfiles/smartjsoninventory3a
+./agentfiles/smartjsoninventory3
+----
