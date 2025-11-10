@@ -1,6 +1,6 @@
-# Smart JSON Inventory
+= Smart JSON Inventory
 
-## Tips
+== Tips
 
 On my development checkmk site I install pprintpp 
 
@@ -19,6 +19,7 @@ pp(section)
 
 
 Gives me something like this while testing my developent on the command line:
+
 ----
 OMD[central24]:~$ cmk --no-cache -i --debug --plugins smartjsoninventory smartjsoninventory3a
 [
@@ -54,21 +55,22 @@ GUI: In the checkmk webinterface open the HW/SW Inventroy Service, reschedule it
 It may be necessary to restart the python interpreter which is running in the apache webservwe with  'omd restart apache'
 If this is not sufficent restart everything 'omd restart'
 
-## Files
+== Files
 
-### Agent plugin demo
+=== Agent plugin demo
 
 * Just a demo agent plugin to output key value pairs
 ----
 ./sysctl2smartjsoninventory.sh
 ----
 
-### The inventory plugin for checkmk
+=== The inventory plugin for checkmk
 ----
 ./local/lib/python3/cmk_addons/plugins/smartjsoninventory/agent_based/smartjsoninventory.py
 ----
 
-### The painter for the inventory
+=== The painter for the inventory
+
 * just cosmetic. API is most probably going to change for checkmk 2.5
 * not needed, just to make the inventory path and colum titles nicer and add icons
 ----
@@ -86,7 +88,7 @@ If this is not sufficent restart everything 'omd restart'
 ./local/share/check_mk/web/htdocs/themes/facelift/images/icon_food-and-drink.svg
 ----
 
-### agent files
+=== agent files
 
 * Some files I used during developing *Individual program call instead of agent access* with +cat ~/agentfile/$HOSTNAME$+
 
