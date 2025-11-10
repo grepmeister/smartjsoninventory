@@ -1,0 +1,11 @@
+= TODO
+
+* explain why to use the sep(0) section attribute makes sense
+* explain how to only collect and emit inventory data every N hours and not on each check cycle
+  This is related to the persist(<TIMESTAMP>) section attribute 
+
+----
+/usr/lib/check_mk_agent/plugins/mk_inventory | grep '<<<'
+<<<lnx_block_devices:sep(0):persist(1762795835)>>>
+....
+----

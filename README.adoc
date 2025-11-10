@@ -17,9 +17,42 @@ from pprint import pprint as pp
 pp(section)
 ...
 
+
+Gives me something like this while testing my developent on the command line:
+----
+OMD[central24]:~$ cmk --no-cache -i --debug --plugins smartjsoninventory smartjsoninventory3a
+[
+    [
+        '[{"col1":111,"col2":112,"col3":113},{"col1":121,"col2":122,"col3":123},{"col1":131,"col2":132,"col3":133}]',
+    ],
+    [
+        '[{"col1":211,"col2":212,"col3":213},{"col1":221,"col2":222,"col3":223},{"col1":231,"col2":232,"col3":233},{"col1":241,"col2":242,"col3":243,"col4":244}]',
+    ],
+    ['[{"col1":311},{"col1":321},{"col1":331},{"col1":341}]'],
+]
 ----
 
 INFO: once you are done with development you should remove thes pp() print statements of course.
+
+### Development Workflow CLI
+
+With vi/vim/nvim or through visual studio code with ssh plugin
+
+.edit
+----
+OMD[central24]:~$ nvim ./local/lib/python3/cmk_addons/plugins/smartjsoninventory/agent_based/smartjsoninventory.py
+----
+
+.verify
+----
+OMD[central24]:~$ cmk --no-cache -i --debug --plugins smartjsoninventory smartjsoninventory3a
+----
+
+Over and over again until it does what I want.
+
+GUI: In the checkmk webinterface open the HW/SW Inventroy Service, reschedule it and view what you get.
+It may be necessary to restart the python interpreter which is running in the apache webservwe with  'omd restart apache'
+If this is not sufficent restart everything 'omd restart'
 
 ## Files
 
