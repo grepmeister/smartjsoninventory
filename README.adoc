@@ -11,15 +11,17 @@ pip install pprintpp
 
 and use it like this to understand the data structure in python
 
+.use
 ----
 from pprint import pprint as pp
 ...
 pp(section)
 ...
-
+----
 
 Gives me something like this while testing my developent on the command line:
 
+.with debug print statement
 ----
 OMD[central24]:~$ cmk --no-cache -i --debug --plugins smartjsoninventory smartjsoninventory3a
 [
@@ -49,8 +51,6 @@ OMD[central24]:~$ nvim ./local/lib/python3/cmk_addons/plugins/smartjsoninventory
 OMD[central24]:~$ cmk --no-cache -i --debug --plugins smartjsoninventory smartjsoninventory3a
 ----
 
-Over and over again until it does what I want.
-
 GUI: In the checkmk webinterface open the HW/SW Inventroy Service, reschedule it and view what you get.
 It may be necessary to restart the python interpreter which is running in the apache webservwe with  'omd restart apache'
 If this is not sufficent restart everything 'omd restart'
@@ -60,11 +60,13 @@ If this is not sufficent restart everything 'omd restart'
 === Agent plugin demo
 
 * Just a demo agent plugin to output key value pairs
+
 ----
 ./sysctl2smartjsoninventory.sh
 ----
 
 === The inventory plugin for checkmk
+
 ----
 ./local/lib/python3/cmk_addons/plugins/smartjsoninventory/agent_based/smartjsoninventory.py
 ----
@@ -73,6 +75,7 @@ If this is not sufficent restart everything 'omd restart'
 
 * just cosmetic. API is most probably going to change for checkmk 2.5
 * not needed, just to make the inventory path and colum titles nicer and add icons
+
 ----
 ./local/share/check_mk/web/plugins/views/smartjsoninventory.py
 ----
